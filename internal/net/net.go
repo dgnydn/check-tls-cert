@@ -10,12 +10,14 @@ import (
 	"errors"
 	"fmt"
 	"net"
+	"strings"
 	"time"
 
 	"github.com/heartbeatsjp/check-tls-cert/checker"
 	"github.com/heartbeatsjp/check-tls-cert/net/imaputil"
 	"github.com/heartbeatsjp/check-tls-cert/net/pop3util"
 	"github.com/heartbeatsjp/check-tls-cert/net/smtputil"
+	"github.com/heartbeatsjp/check-tls-cert/ocsputil"
 	"github.com/heartbeatsjp/check-tls-cert/x509util"
 	"github.com/mattn/go-colorable"
 )
@@ -53,6 +55,7 @@ type NetCommandOptions struct {
 	RootFile         string
 	EnableSSLCertDir bool
 	OutputFormat     checker.OutputFormat
+	HTTPHeaders      []string
 }
 
 // Run checks certificates.
@@ -75,6 +78,24 @@ func Run(opts NetCommandOptions) (int, error) {
 	rootCertPool, err = x509util.GetRootCertPool(rootCerts, opts.EnableSSLCertDir)
 	if err != nil {
 		return checker.UNKNOWN.Code(), err
+	}
+
+	// If HTTP headers were provided via CLI, pass them to ocsputil so
+	// OCSP HTTP requests include these headers.
+	if len(opts.HTTPHeaders) > 0 {
+		hdrs := make(map[string]string)
+		for _, h := range opts.HTTPHeaders {
+			parts := strings.SplitN(h, ":", 2)
+			if len(parts) != 2 {
+				continue
+			}
+			name := strings.TrimSpace(parts[0])
+			value := strings.TrimSpace(parts[1])
+			if name != "" {
+				hdrs[name] = value
+			}
+		}
+		ocsputil.AdditionalHeaders = hdrs
 	}
 
 	tlsConfig := tls.Config{

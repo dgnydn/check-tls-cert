@@ -66,6 +66,11 @@ func (c CertificateStatus) Message() string {
 	return "unknown OCSP certificate status: " + strconv.Itoa(i)
 }
 
+// AdditionalHeaders are optional HTTP headers to add to OCSP HTTP requests.
+// They are set by callers that need to include custom headers (for example
+// via the CLI) and are applied to each request issued by GetOCSPResponse.
+var AdditionalHeaders map[string]string
+
 // CRLReasonCode is a CRL reason code.
 type CRLReasonCode int
 
@@ -210,6 +215,11 @@ func GetOCSPResponse(cert *x509.Certificate, issuer *x509.Certificate) (string, 
 				continue
 			}
 			req.Header.Set("Content-Type", "application/ocsp-request")
+		}
+
+		// Apply any additional headers requested by the caller.
+		for k, v := range AdditionalHeaders {
+			req.Header.Set(k, v)
 		}
 
 		var resp *http.Response

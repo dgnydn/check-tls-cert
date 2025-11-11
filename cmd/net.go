@@ -30,6 +30,7 @@ var (
 	ocspOption    netcmd.OCSPOption
 	timeout       int
 	netCmdOpts    netcmd.NetCommandOptions
+	httpHeaders   []string
 
 	netCmd = &cobra.Command{
 		Use:   "net",
@@ -70,6 +71,7 @@ var (
 				RootFile:         rootFile,
 				EnableSSLCertDir: enableSSLCertDir,
 				OutputFormat:     outputFormat,
+				HTTPHeaders:      httpHeaders,
 			}
 
 			return nil
@@ -102,6 +104,7 @@ var (
 func init() {
 	netCmd.Flags().StringVarP(&hostname, "hostname", "H", "", "`hostname` for verifying certificate")
 	netCmd.MarkFlagRequired("hostname")
+	netCmd.Flags().StringArrayVar(&httpHeaders, "http-header", nil, "HTTP header to add to requests (can be repeated). Format: 'Name: value'")
 	netCmd.Flags().IPVarP(&ipAddress, "ip-address", "I", nil, "IP `address`")
 	netCmd.Flags().Uint16VarP(&port, "port", "p", 443, "port `number`")
 	netCmd.Flags().BoolVarP(&useIPv4, "use-ipv4", "4", false, "use IPv4")
