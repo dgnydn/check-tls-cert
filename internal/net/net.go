@@ -13,12 +13,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/heartbeatsjp/check-tls-cert/checker"
-	"github.com/heartbeatsjp/check-tls-cert/net/imaputil"
-	"github.com/heartbeatsjp/check-tls-cert/net/pop3util"
-	"github.com/heartbeatsjp/check-tls-cert/net/smtputil"
-	"github.com/heartbeatsjp/check-tls-cert/ocsputil"
-	"github.com/heartbeatsjp/check-tls-cert/x509util"
+	"github.com/dgnydn/check-tls-cert/checker"
+	"github.com/dgnydn/check-tls-cert/net/imaputil"
+	"github.com/dgnydn/check-tls-cert/net/pop3util"
+	"github.com/dgnydn/check-tls-cert/net/smtputil"
+	"github.com/dgnydn/check-tls-cert/ocsputil"
+	"github.com/dgnydn/check-tls-cert/x509util"
 	"github.com/mattn/go-colorable"
 )
 

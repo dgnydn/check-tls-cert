@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/heartbeatsjp/check-tls-cert/checker"
+	"github.com/dgnydn/check-tls-cert/checker"
 	"github.com/stretchr/testify/assert"
 )
 

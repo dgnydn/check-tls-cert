@@ -4,7 +4,7 @@
 
 package main
 
-import "github.com/heartbeatsjp/check-tls-cert/cmd"
+import "github.com/dgnydn/check-tls-cert/cmd"
 
 func main() {
 	cmd.Execute()

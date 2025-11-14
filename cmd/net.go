@@ -12,8 +12,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/heartbeatsjp/check-tls-cert/checker"
-	netcmd "github.com/heartbeatsjp/check-tls-cert/internal/net"
+	"github.com/dgnydn/check-tls-cert/checker"
+	netcmd "github.com/dgnydn/check-tls-cert/internal/net"
 	"github.com/spf13/cobra"
 )
 

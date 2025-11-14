@@ -10,7 +10,7 @@ import (
 	"crypto/rsa"
 	"crypto/x509"
 
-	"github.com/heartbeatsjp/check-tls-cert/x509util"
+	"github.com/dgnydn/check-tls-cert/x509util"
 )
 
 // KeyPairChecker represents wheather a private key is paired with a certificate.

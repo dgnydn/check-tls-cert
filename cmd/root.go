@@ -10,9 +10,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/heartbeatsjp/check-tls-cert/checker"
-	"github.com/heartbeatsjp/check-tls-cert/version"
-	"github.com/heartbeatsjp/check-tls-cert/x509util"
+	"github.com/dgnydn/check-tls-cert/checker"
+	"github.com/dgnydn/check-tls-cert/version"
+	"github.com/dgnydn/check-tls-cert/x509util"
 	"github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
 )

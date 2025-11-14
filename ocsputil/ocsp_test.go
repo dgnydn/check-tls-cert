@@ -12,8 +12,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/heartbeatsjp/check-tls-cert/ocsputil"
-	"github.com/heartbeatsjp/check-tls-cert/x509util"
+	"github.com/dgnydn/check-tls-cert/ocsputil"
+	"github.com/dgnydn/check-tls-cert/x509util"
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/crypto/ocsp"
 )

@@ -8,7 +8,7 @@ import (
 	"bytes"
 	"crypto/x509"
 
-	"github.com/heartbeatsjp/check-tls-cert/x509util"
+	"github.com/dgnydn/check-tls-cert/x509util"
 )
 
 // CertificateChainChecker represents wheather certificate chains are valid.

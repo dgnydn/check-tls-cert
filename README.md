@@ -8,7 +8,6 @@ Check-tls-cert checks the validity of certificates and certificate chains.
 
 Check-tls-cert has two commands, 'file' and 'net'. The 'file' command checks TLS certificate files and a private key. The 'net' command connects to a server and checks a TLS certificate.
 
-
 ### file command
 
 The 'file' command checks TLS certificate files and a private key.
@@ -20,7 +19,6 @@ It runs the following checks:
 - Hostname
 - Validity
 - Certificate Chains
-
 
 ### net command
 
@@ -40,12 +38,12 @@ It runs the following checks:
 You can install check-tls-cert in the following way:
 
 ```
-go install github.com/heartbeatsjp/check-tls-cert@latest
+go install github.com/dgnydn/check-tls-cert@latest
 ```
 
 You can download the binary file of check-tls-cert from the following page:
 
-- https://github.com/heartbeatsjp/check-tls-cert/releases
+- https://github.com/dgnydn/check-tls-cert/releases
 
 Note: Only binaries for Linux and macOS are available.
 
@@ -92,10 +90,9 @@ By setting the option `--root-file`, you can specify a root certificate file to 
 By default, system certificate directories and the environmenrt variable SSL_CERT_DIR are disabled.
 This is a workaround for the following issue:
 
-- https://github.com/golang/go/issues/39540  
+- https://github.com/golang/go/issues/39540
 
 You can enable them by setting the option `--enable-ssl-cert-dir`.
-
 
 ### OCSP Stapling Checker
 
@@ -103,14 +100,13 @@ It checks the OCSP response obtained by OCSP stapling.
 
 You can set one of the options `--ocsp no`, `--ocsp as-is`, `--ocsp stapling`, or `--ocsp fallback` to run this checker.
 
-With the option `--ocsp no`, it disables OCSP stapling checker. You should use it when `insecure algorithm SHA1-RSA` error on `OCSP Stapling` occurs. 
+With the option `--ocsp no`, it disables OCSP stapling checker. You should use it when `insecure algorithm SHA1-RSA` error on `OCSP Stapling` occurs.
 
 With the option `--ocsp as-is` (by default), if there is no OCSP response, the status will be "INFO".
 
 With the option `--ocsp stapling`, if there is no OCSP response, it will retry the TLS connection up to two times every second. If there is still no OCSP response, the status will be "WARNING". The reason for retrying is that there may be no OCSP response immediately after starting the web server.
 
 With the option `--ocsp fallback`, if there is no OCSP response, the OCSP Responder Checker will be executed.
-
 
 ### OCSP Responder Checker
 
@@ -124,7 +120,6 @@ If the status of the certificate is "revoked" or "unknown", the staus will be "C
 If the response has an error and the response error is "unauthorized", the status will be "CRITICAL".
 If the response error is others, the status will be "UNKNOWN".
 
-
 ## LIMITATIONS
 
 ### Encoding format for certificates and private keys
@@ -137,10 +132,10 @@ Only the following algorithms are supported:
 
 - RSA
 - ECDSA
-    - NIST P-224 (secp224r1)
-    - NIST P-256 (secp256r1, prime256v1)
-    - NIST P-384 (secp384r1)
-    - NIST P-521 (secp521r1)
+  - NIST P-224 (secp224r1)
+  - NIST P-256 (secp256r1, prime256v1)
+  - NIST P-384 (secp384r1)
+  - NIST P-521 (secp521r1)
 - Ed25519
 
 Only the uncompressed form of ECDSA is supported.
@@ -155,7 +150,6 @@ This is due to limitations of Go 1.18. See also:
 
 - https://tip.golang.org/doc/go1.18#sha1
 
-
 ## KNOWN ISSUES
 
 ### Verification of certificates that do not have SCT fail
@@ -169,7 +163,6 @@ This is due to Apple's Certificate Transparency policy.
 For reference, on Windows, macOS, and iOS, Go 1.18 uses the platform verifier APIs for certificate verifications.
 
 - https://tip.golang.org/doc/go1.18#minor_library_changes
-
 
 ## USAGE
 
@@ -296,7 +289,7 @@ OK: the private key is paired with the certificate
                 00:d3:a0:10:4c:a5:90:94:3d:dd:32:21:82:d2:df:
                 ...(omitted)
             Exponent: 65537 (0x10001)
-    
+
     To get the full public key, use the '-vv' option.
 
 [Hostname]
@@ -339,7 +332,7 @@ To get more detailed information, use the '-vv' option.
 To use it as a monitoring plugin, run it without the '-v' option.
 
 ```
-$ check-tls-cert net -H server-a.test 
+$ check-tls-cert net -H server-a.test
 OK: all checks have been passed
 ```
 

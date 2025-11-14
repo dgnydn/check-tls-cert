@@ -9,7 +9,7 @@ import (
 	"encoding/asn1"
 	"fmt"
 
-	"github.com/heartbeatsjp/check-tls-cert/ocsputil"
+	"github.com/dgnydn/check-tls-cert/ocsputil"
 	"golang.org/x/crypto/ocsp"
 )
 

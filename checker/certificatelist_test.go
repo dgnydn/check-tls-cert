@@ -10,8 +10,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/heartbeatsjp/check-tls-cert/checker"
-	"github.com/heartbeatsjp/check-tls-cert/x509util"
+	"github.com/dgnydn/check-tls-cert/checker"
+	"github.com/dgnydn/check-tls-cert/x509util"
 	"github.com/stretchr/testify/assert"
 )
 

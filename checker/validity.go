@@ -7,7 +7,7 @@ package checker
 import (
 	"crypto/x509"
 
-	"github.com/heartbeatsjp/check-tls-cert/x509util"
+	"github.com/dgnydn/check-tls-cert/x509util"
 )
 
 const timeFormat = "2006-01-02 15:04:05 -0700"

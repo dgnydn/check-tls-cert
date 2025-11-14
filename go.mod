@@ -1,4 +1,4 @@
-module github.com/heartbeatsjp/check-tls-cert
+module github.com/dgnydn/check-tls-cert
 
 go 1.18
 

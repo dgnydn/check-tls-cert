@@ -7,7 +7,7 @@ package checker
 import (
 	"crypto/x509"
 
-	"github.com/heartbeatsjp/check-tls-cert/ocsputil"
+	"github.com/dgnydn/check-tls-cert/ocsputil"
 )
 
 // OCSPStaplingChecker represents wheather the response from OCSP Stapling is valid.

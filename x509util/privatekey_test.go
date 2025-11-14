@@ -8,7 +8,7 @@ import (
 	"crypto/x509"
 	"testing"
 
-	"github.com/heartbeatsjp/check-tls-cert/x509util"
+	"github.com/dgnydn/check-tls-cert/x509util"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -18,7 +18,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/heartbeatsjp/check-tls-cert/x509util"
+	"github.com/dgnydn/check-tls-cert/x509util"
 	"golang.org/x/crypto/ocsp"
 )
 

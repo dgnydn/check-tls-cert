@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/heartbeatsjp/check-tls-cert/checker"
-	filecmd "github.com/heartbeatsjp/check-tls-cert/internal/file"
+	"github.com/dgnydn/check-tls-cert/checker"
+	filecmd "github.com/dgnydn/check-tls-cert/internal/file"
 	"github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
 )
